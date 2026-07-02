@@ -31,7 +31,7 @@ variable "data_volume_size" {
 variable "environment" {
   description = "Environment name used for tagging resources."
   type        = string
-  default     = "demo"
+  default     = "Dev"
 }
 
 variable "project_name" {

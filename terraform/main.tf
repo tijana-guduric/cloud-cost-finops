@@ -1,9 +1,7 @@
 locals {
   common_tags = {
-    Project     = var.project_name
+    Service     = var.project_name
     Environment = var.environment
-    ManagedBy   = "Terraform"
-    Purpose     = "FinOps cost estimation demo"
   }
 }
 
@@ -14,10 +12,18 @@ resource "aws_instance" "demo_server" {
   root_block_device {
     volume_size = var.root_volume_size
     volume_type = "gp3"
+
+    tags = merge(local.common_tags, {
+      Name = "${var.project_name}-root-volume"
+    })
   }
 
   tags = merge(local.common_tags, {
     Name = "${var.project_name}-demo-server"
+  })
+
+  volume_tags = merge(local.common_tags, {
+    Name = "${var.project_name}-root-volume"
   })
 }
 

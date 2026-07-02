@@ -17,6 +17,10 @@ resource "aws_instance" "demo_server" {
   tags = merge(local.common_tags, {
     Name = "${var.project_name}-demo-server"
   })
+
+  volume_tags = merge(local.common_tags, {
+    Name = "${var.project_name}-root-volume"
+  })
 }
 
 resource "aws_ebs_volume" "data_volume" {

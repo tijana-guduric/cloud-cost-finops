@@ -1,10 +1,6 @@
 name: Infracost
 
 on:
-  push:
-    paths:
-      - 'terraform/**'
-      - '.github/workflows/infracost.yml'
   pull_request:
     paths:
       - 'terraform/**'
@@ -59,6 +55,6 @@ jobs:
           infracost comment github \
             --path=/tmp/infracost.json \
             --repo=${{ github.repository }} \
-            --pull-request=${{ github.event.pull_request.number }} \
+            --pull-request=${{ github.event.number }} \
             --github-token=${{ github.token }} \
             --behavior=update

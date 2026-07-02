@@ -13,7 +13,11 @@ variable "availability_zone" {
 variable "instance_type" {
   description = "EC2 instance type used in the baseline scenario."
   type        = string
+<<<<<<< HEAD
   default     = "t4g.small"
+=======
+  default     = "t3.small"
+>>>>>>> 206a9d5181b679dee025bf04ed228b4297282d24
 }
 
 variable "root_volume_size" {

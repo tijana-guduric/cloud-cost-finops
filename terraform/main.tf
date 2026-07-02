@@ -1,9 +1,12 @@
 locals {
   common_tags = {
-    Project     = var.project_name
-    Environment = var.environment
-    ManagedBy   = "Terraform"
-    Purpose     = "FinOps cost estimation demo"
+    project     = var.project_name
+    environment = var.environment
+    managed_by  = "terraform"
+    purpose     = "finops-cost-estimation-demo"
+    owner       = "student"
+    team        = "cloud"
+    cost_center = "education"
   }
 }
 

@@ -13,7 +13,7 @@ variable "availability_zone" {
 variable "instance_type" {
   description = "EC2 instance type used in the baseline scenario."
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "root_volume_size" {
@@ -25,7 +25,7 @@ variable "root_volume_size" {
 variable "data_volume_size" {
   description = "Additional EBS data volume size in GB."
   type        = number
-  default     = 20
+  default     = 50
 }
 
 variable "environment" {

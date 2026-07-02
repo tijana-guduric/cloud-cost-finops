@@ -1,6 +1,10 @@
 name: Infracost
 
 on:
+  push:
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/infracost.yml'
   pull_request:
     paths:
       - 'terraform/**'

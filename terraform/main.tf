@@ -12,6 +12,10 @@ resource "aws_instance" "demo_server" {
   root_block_device {
     volume_size = var.root_volume_size
     volume_type = "gp3"
+
+    tags = merge(local.common_tags, {
+      Name = "${var.project_name}-root-volume"
+    })
   }
 
   tags = merge(local.common_tags, {

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medium-resource-app
+  namespace: finops-demo
+  labels:
+    app: medium-resource-app
+    workload-size: medium
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medium-resource-app
+  template:
+    metadata:
+      labels:
+        app: medium-resource-app
+        workload-size: medium
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: '200m'
+              memory: '256Mi'
+            limits:
+              cpu: '400m'
+              memory: '512Mi'

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: low-resource-app
+  namespace: finops-demo
+  labels:
+    app: low-resource-app
+    workload-size: low
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: low-resource-app
+  template:
+    metadata:
+      labels:
+        app: low-resource-app
+        workload-size: low
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: '50m'
+              memory: '64Mi'
+            limits:
+              cpu: '100m'
+              memory: '128Mi'

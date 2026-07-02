@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: high-resource-app
+  namespace: finops-demo
+  labels:
+    app: high-resource-app
+    workload-size: high
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: high-resource-app
+  template:
+    metadata:
+      labels:
+        app: high-resource-app
+        workload-size: high
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: '500m'
+              memory: '512Mi'
+            limits:
+              cpu: '1000m'
+              memory: '1024Mi'

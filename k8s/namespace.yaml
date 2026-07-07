@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: finops-demo
+  labels:
+    app.kubernetes.io/name: cloud-cost-finops
+    environment: dev
+    purpose: opencost-demo

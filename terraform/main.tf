@@ -11,9 +11,9 @@ resource "aws_instance" "demo_server" {
   associate_public_ip_address = false
 
   root_block_device {
-    volume_size   = var.root_volume_size
-    volume_type   = "gp3"
-    encrypted     = true
+    volume_size = var.root_volume_size
+    volume_type = "gp3"
+    encrypted   = true
 
     tags = merge(local.common_tags, {
       Name = "${var.project_name}-root-volume"

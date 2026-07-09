@@ -25,7 +25,7 @@ variable "root_volume_size" {
 variable "data_volume_size" {
   description = "Additional EBS data volume size in GB."
   type        = number
-  default     = 15
+  default     = 40
 }
 
 variable "environment" {
